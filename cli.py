@@ -143,6 +143,25 @@ def create_appointment():
     session.commit()
     print(f"Appointment created successfully for Patient {patient.name} with Doctor {doctor.name}.")
 
+def update_appointment():
+    list_appointments()
+    appointment_id = int(input("Enter Appointment ID to update: "))
+    appointment = session.get(Appointment, appointment_id)
+    if not appointment:
+        print(f"No appointment found with ID {appointment_id}.")
+        return
+
+    new_date = input(f"Update appointment date (current: {appointment.appointment_date}, format: YYYY-MM-DD HH:MM): ")
+    if new_date:
+        try:
+            appointment.appointment_date = datetime.strptime(new_date, "%Y-%m-%d %H:%M")
+        except ValueError:
+            print("Invalid date format. Appointment date not updated.")
+
+    appointment.details = input(f"Update appointment details (current: {appointment.details}): ") or appointment.details
+    session.commit()
+    print(f"Appointment ID {appointment_id} has been updated successfully.")
+
 def delete_appointment():
     list_appointments()
     appointment_id = int(input("Enter Appointment ID to delete: "))
@@ -215,31 +234,35 @@ def main_menu():
         print("14.List Appointments")
         print("15. Exit")
 
-        # choice = input("Enter your choice: ")
+        choice = input("Enter your choice: ")
 
-        # if choice == "1":
-        #     create_doctor()
-        # elif choice == "2":
-        #     update_doctor()
-        # elif choice == "3":
-        #     delete_doctor()
-        # elif choice == "4":
-        #     create_patient()
-        # elif choice == "5":
-        #     update_patient()
-        # elif choice == "6":
-        #     delete_patient()
-        # elif choice == "7":
-        #     assign_patient()
-        # elif choice == "8":
-        #     list_doctors()
-        # elif choice == "9":
-        #     list_patients()
-        # elif choice == "10":
-        #     view_patients_by_doctor()
-        # elif choice =="11"
-        # elif choice == "15":
-        #     exit()
+        if choice == "1":
+            create_doctor()
+        elif choice == "2":
+            update_doctor()
+        elif choice == "3":
+            delete_doctor()
+        elif choice == "4":
+            create_patient()
+        elif choice == "5":
+            update_patient()
+        elif choice == "6":
+            delete_patient()
+        elif choice == "7":
+            assign_patient()
+        elif choice == "8":
+            list_doctors()
+        elif choice == "9":
+            list_patients()
+        elif choice == "10":
+            view_patients_by_doctor()
+        elif choice =="11":
+            create_appointment()
+        elif choice == "12"
+            update
+
+        elif choice == "15":
+            exit()
 
 
 
