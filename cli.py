@@ -143,17 +143,17 @@ def create_appointment():
     session.commit()
     print(f"Appointment created successfully for Patient {patient.name} with Doctor {doctor.name}.")
 
-# def delete_appointment():
-#     list_appointments()
-#     appointment_id = int(input("Enter Appointment ID to delete: "))
-#     appointment = session.get(Appointment, appointment_id)
-#     if not appointment:
-#         print(f"No appointment found with ID {appointment_id}.")
-#         return
+def delete_appointment():
+    list_appointments()
+    appointment_id = int(input("Enter Appointment ID to delete: "))
+    appointment = session.get(Appointment, appointment_id)
+    if not appointment:
+        print(f"No appointment found with ID {appointment_id}.")
+        return
 
-#     session.delete(appointment)
-#     session.commit()
-#     print(f"Appointment ID {appointment_id} deleted successfully.")
+    session.delete(appointment)
+    session.commit()
+    print(f"Appointment ID {appointment_id} deleted successfully.")
 
 def list_appointments():
     appointments = session.query(Appointment).all()
@@ -208,32 +208,38 @@ def main_menu():
         print("7. Assign a patient to a doctor")
         print("8. List Doctors")
         print("9. List Patients")
-        print("10. View Patients by Doctor")
-        print("11. Exit")
-        choice = input("Enter your choice: ")
+        print("10.View Patients by Doctor")
+        print("11.Create Appointment")
+        print("12.Update Appointment")
+        print("13.Delete Appointment")
+        print("14.List Appointments")
+        print("15. Exit")
 
-        if choice == "1":
-            create_doctor()
-        elif choice == "2":
-            update_doctor()
-        elif choice == "3":
-            delete_doctor()
-        elif choice == "4":
-            create_patient()
-        elif choice == "5":
-            update_patient()
-        elif choice == "6":
-            delete_patient()
-        elif choice == "7":
-            assign_patient()
-        elif choice == "8":
-            list_doctors()
-        elif choice == "9":
-            list_patients()
-        elif choice == "10":
-            view_patients_by_doctor()
-        elif choice == "11":
-            exit()
+        # choice = input("Enter your choice: ")
+
+        # if choice == "1":
+        #     create_doctor()
+        # elif choice == "2":
+        #     update_doctor()
+        # elif choice == "3":
+        #     delete_doctor()
+        # elif choice == "4":
+        #     create_patient()
+        # elif choice == "5":
+        #     update_patient()
+        # elif choice == "6":
+        #     delete_patient()
+        # elif choice == "7":
+        #     assign_patient()
+        # elif choice == "8":
+        #     list_doctors()
+        # elif choice == "9":
+        #     list_patients()
+        # elif choice == "10":
+        #     view_patients_by_doctor()
+        # elif choice =="11"
+        # elif choice == "15":
+        #     exit()
 
 
 
