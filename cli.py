@@ -136,6 +136,20 @@ def view_patients_by_doctor():
         print(patient)
 
 def main_menu():
+    while True:
+        print("\nWelcome to our doctor patient database, what do you have ib mind🤔?")
+        print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+         print("1. Create patient?")
+
 
 
 if __name__== "__main__":
