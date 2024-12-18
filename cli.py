@@ -111,7 +111,7 @@ def assign_patient():
 # APPOINTMENTS
 def create_appointment():
     list_doctors()
-    doctor_id = int(input("Enter Patient ID to create an appointment: "))
+    doctor_id = int(input("Enter Doctor ID to create an appointment: "))
     doctor = session.get(Doctor, doctor_id)
     if not doctor:
         print(f"No doctor found with ID {doctor_id}.")
@@ -128,7 +128,7 @@ def create_appointment():
     try:
         appointment_date = datetime.strptime(appointment_date, "%Y-%m-%d %H:%M")
     except ValueError:
-        print("Invalid date format.")
+        print("Invalid date format, write as described.")
         return
 
     details = input("Enter appointment details: ")
@@ -232,7 +232,8 @@ def main_menu():
         print("12.Update Appointment")
         print("13.Delete Appointment")
         print("14.List Appointments")
-        print("15. Exit")
+        print("15.Clear")
+        print("16. Exit")
 
         choice = input("Enter your choice: ")
 
