@@ -121,22 +121,22 @@ def list_patients():
     for patient in patients:
         print(patient)
 
-def view_patients_by_doctor():
-    doctor_id = int(input("Enter Doctor ID to view patients: "))
-    doctor = session.get(Doctor,doctor_id)
-    if not doctor:
-        print(f"Doctor with ID {doctor_id} does not exist")
-        return
-    patients = doctor.patients
-    if not patients:
-        print(f"No patients found under the doctor with ID {doctor_id}")
-        return
-    print(f"Patients belonging to Doctor '{doctor.name}' (ID {doctor_id}): ")
-    for patient in patients:
-        print(patient)
+# def view_patients_by_doctor():
+#     doctor_id = int(input("Enter Doctor ID to view patients: "))
+#     doctor = session.get(Doctor,doctor_id)
+#     if not doctor:
+#         print(f"Doctor with ID {doctor_id} does not exist")
+#         return
+#     patients = doctor.patients
+#     if not patients:
+#         print(f"No patients found under the doctor with ID {doctor_id}")
+#         return
+#     print(f"Patients belonging to Doctor '{doctor.name}' (ID {doctor_id}): ")
+#     for patient in patients:
+#         print(patient)
 
 def main_menu():
-    
+
 
 if __name__== "__main__":
     init_db()
