@@ -258,13 +258,16 @@ def main_menu():
             view_patients_by_doctor()
         elif choice =="11":
             create_appointment()
-        elif choice == "12"
-            update
-
+        elif choice == "12":
+            update_appointment()
+        elif choice == "13":
+            delete_appointment()
+        elif choice == "14":
+            list_appointments()
         elif choice == "15":
             exit()
-
-
+        else:
+            print("Invalid choice. Pleae try again.")
 
 if __name__== "__main__":
     init_db()
