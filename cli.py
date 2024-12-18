@@ -143,6 +143,31 @@ def create_appointment():
     session.commit()
     print(f"Appointment created successfully for Patient {patient.name} with Doctor {doctor.name}.")
 
+# def delete_appointment():
+#     list_appointments()
+#     appointment_id = int(input("Enter Appointment ID to delete: "))
+#     appointment = session.get(Appointment, appointment_id)
+#     if not appointment:
+#         print(f"No appointment found with ID {appointment_id}.")
+#         return
+
+#     session.delete(appointment)
+#     session.commit()
+#     print(f"Appointment ID {appointment_id} deleted successfully.")
+
+def list_appointments():
+    appointments = session.query(Appointment).all()
+    if not appointments:
+        print("No appointments found.")
+        return
+    for appt in appointments:
+        doctor = session.get(Doctor, appt.doctor_id)
+        patient = session.get(Patient, appt.patient_id)
+        print(
+            f"ID: {appt.id}, Doctor: {doctor.name}, Patient: {patient.name}, "
+            f"Date: {appt.appointment_date}, Details: {appt.details}"
+        )
+
 def list_doctors():
     doctors = session.query(Doctor).all()
     if not doctors:
