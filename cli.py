@@ -46,6 +46,60 @@ def delete_doctor():
     print(f"Doctor ID {doctor_id} deleted successfully.")
 
 
+# PATIENT CRUD OPERATION
+
+def create_patient():
+    name = input("Enter patient's name: ")
+    email = input("Enter patient's email: ")
+    age = int(input("Enter patient's age: "))
+    doctor_id = int(input("Enter doctor ID: "))
+    doctor = session.get(Doctor,doctor_id)
+    
+    if not doctor:
+        print(f"Doctor with ID {doctor_id} does not exist.")
+        return
+    patient = Patient(name=name, email=email, age=age, doctor_id=doctor_id)
+    session.add(patient)
+    session.commit()
+    print(f"Patient '{name}' created with ID {patient.id} and assigned to Doctor with ID {doctor_id}")
+    
+
+def update_patient():
+    patient_id = int(input("Enter Doctor ID to update: "))
+    patient = session.get(Patient,patient_id)
+    if not patient:
+        print(f"Patient with ID {patient_id} can not be found!!!")
+        return
+    patient.name = input(f"Update patient's name: (current: {patient.name}): ") or patient.name
+    patient.email = input(f"Update patient's email: (current: {patient.email}): ") or patient.email
+    patient.age = input(f"Update patient's age: (current: {patient.age}: )") or patient.age
+    new_doctor_id = input(f"Update new doctor's ID: (current: {patient.doctor_id}: )") or patient.doctor_id
+    if new_doctor_id:
+        new_doctor_id = session.get(Doctor,int(new_doctor_id))
+        if not new_doctor_id:
+            print(f"Doctor with {new_doctor_id} cannot be found. Onto the next...")
+        else:
+            patient.doctor_id = new_doctor_id
+    session.commit()
+    print(f"Patient ID: {patient_id} has been updated successfully!!!")
+
+def delete_patient():
+    patient_id = int(input("Enter patient ID to delete: "))
+    patient = session.get(patient,patient_id)
+
+    if not patient:
+        print(f"patient with ID {patient_id} cannot be found!!!")
+        return
+    session.delete(patient)
+    session.commit()
+    print(f"patient ID {patient_id} deleted successfully.")
+
+def assign_patient():
+    patient_id = int(input("Enter Student ID: "))
+    doctor_id = int(input("Enter the new Doctor ID: "))
+    doctor
+
+
 if __name__== "__main__":
     init_db()
     

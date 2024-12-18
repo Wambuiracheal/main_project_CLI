@@ -20,6 +20,7 @@ class Patient(Base):
     id = Column(Integer,primary_key=True)
     name = Column(String,nullable=False)
     email = Column(String,nullable=False,unique=True)
+    age = Column(Integer,nullable=False)
     doctor_id = Column(Integer,ForeignKey("doctors.id"), nullable=False)
 
     doctor = relationship("Doctor",back_populates="patients")
