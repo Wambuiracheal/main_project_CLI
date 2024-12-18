@@ -97,8 +97,46 @@ def delete_patient():
 def assign_patient():
     patient_id = int(input("Enter Student ID: "))
     doctor_id = int(input("Enter the new Doctor ID: "))
-    doctor
+    patient = session.get(Patient,patient_id)
+    doctor = session.get(Doctor,doctor_id)
 
+    if not patient or not doctor:
+        print("Invalid patient ID  or doctor ID")
+        return
+    patient.doctor_id = doctor_id
+    session.commit()
+    print("Doctor assigned successfully")
+
+def list_doctors():
+    doctors = session.query(Doctor).all()
+    if not doctors:
+        print('No doctors found!!1')
+    for doctor in doctors:
+        print(doctor)
+
+def list_patients():
+    patients = session.query(Patient).all()
+    if not patients:
+        print('No doctors found!!1')
+    for patient in patients:
+        print(patient)
+
+def view_patients_by_doctor():
+    doctor_id = int(input("Enter Doctor ID to view patients: "))
+    doctor = session.get(Doctor,doctor_id)
+    if not doctor:
+        print(f"Doctor with ID {doctor_id} does not exist")
+        return
+    patients = doctor.patients
+    if not patients:
+        print(f"No patients found under the doctor with ID {doctor_id}")
+        return
+    print(f"Patients belonging to Doctor '{doctor.name}' (ID {doctor_id}): ")
+    for patient in patients:
+        print(patient)
+
+def main_menu():
+    
 
 if __name__== "__main__":
     init_db()
