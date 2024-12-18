@@ -138,21 +138,46 @@ def view_patients_by_doctor():
 def main_menu():
     while True:
         print("\nWelcome to our doctor patient database, what do you have ib mind🤔?")
-        print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
-         print("1. Create patient?")
+        print("1. Create Doctor")
+        print("2. Update Doctor")
+        print("3. Delete Doctor")
+        print("4. Create Patient")
+        print("5. Update Patient")
+        print("6. Delete Patient")
+        print("7. Assign a patient to a doctor")
+        print("8. List Doctors")
+        print("9. List Patients")
+        print("10. View Patients by Doctor")
+        print("11. Exit")
+        # choice = input("Enter your choice: ")
+
+        # if choice == "1":
+        #     create_doctor()
+        # elif choice == "2":
+        #     update_doctor()
+        # elif choice == "3":
+        #     delete_doctor()
+        # elif choice == "4":
+        #     create_patient()
+        # elif choice == "5":
+        #     update_patient()
+        # elif choice == "6":
+        #     delete_patient()
+        # elif choice == "7":
+        #     assign_patient()
+        # elif choice == "8":
+        #     list_doctors()
+        # elif choice == "9":
+        #     list_patients()
+        # elif choice == "10":
+        #     view_patients_by_doctor()
+        # elif choice == "11":
+        #     exit()
 
 
 
 if __name__== "__main__":
     init_db()
+    # main_menu()
     
 
