@@ -197,7 +197,7 @@ def list_doctors():
 def list_patients():
     patients = session.query(Patient).all()
     if not patients:
-        print('No doctors found!!1')
+        print('No patients found!!!')
     for patient in patients:
         print(patient)
 
@@ -232,8 +232,7 @@ def main_menu():
         print("12.Update Appointment")
         print("13.Delete Appointment")
         print("14.List Appointments")
-        print("15.Clear")
-        print("16. Exit")
+        print("15.Exit")
 
         choice = input("Enter your choice: ")
 

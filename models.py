@@ -27,7 +27,7 @@ class Patient(Base):
     appointments = relationship("Appointment",back_populates="patient", cascade="all, delete-orphan")
 
     def __repr__(self):
-        return f"Doctor(id = {self.id}, name = '{self.name}', email = '{self.email}', doctor_id={self.doctor_id})"
+        return f"Patient(id = {self.id}, name = '{self.name}', email = '{self.email}', doctor_id={self.doctor_id})"
     
 class Appointment(Base):
     __tablename__ = "appointments"
